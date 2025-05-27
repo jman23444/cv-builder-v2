@@ -1,7 +1,7 @@
 /* src/index.css */
 
 :root {
-  font-family: Arial, sans-serif;
+  font-family: Roboto, Arial, sans-serif;
   color-scheme: light dark;
   background-color: #f8f9fa;
   color: #212529;
@@ -12,13 +12,108 @@ body {
   padding: 0;
 }
 
-.centered {
+/*  BUTTON STYLING */
+
+.button {
   display: flex;
+  padding: 8px 8px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.button-icon {
+  width: 32px;
+  height: 32px;
+  aspect-ratio: 1/1;
+}
+
+.profile-icon__letter {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  padding: 16px;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  font-size: 2rem;
-  font-weight: bold;
-  background-color: #28a745;
-  color: white;
+  gap: 10px;
+  aspect-ratio: 1/1;
+  border-radius: 90px;
+  background: #891212;
+  color: #FFF;
+  text-align: center;;
+  font-size: 24px;
+  font-weight: 400;
+  cursor: pointer;
 }
+
+
+
+/*  HEADER STYLING */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 16px;;
+  border-bottom: 1px solid #CCCCC9;
+  background-color: #FFF;
+  position: relative;
+}
+
+.header__logo img {
+  height: 90px;
+  cursor: pointer;
+}
+
+.header__nav {
+  display: flex;
+  gap: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header__title {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#mobile-menu-button {
+    display: none;
+  }
+
+@media (max-width: 950px) {
+  /*  */
+  .header__nav {
+    display: none;
+  }
+  /*  */
+
+}
+
+@media (max-width: 700px) {
+  /*  */
+  .header__actions {
+    display: none;
+  }
+  /*  */
+  #mobile-menu-button {
+    display: block;
+  }
+
+
+}
+

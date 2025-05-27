@@ -1,10 +1,9 @@
+import React from 'react';
+import Builder from './pages/Builder';
 
-function App() {
+
+export default function App() {
   return (
-    <div className="centered">
-      <p>Tailwind is working! 🎉</p>
-    </div>
+    <Builder />
   );
 }
-
-export default App;
