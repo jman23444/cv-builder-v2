@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import leftChevron from '../../assets/icons/left_chevron.svg';
 
-export default function WorkExperienceDrawer({ isOpen, onClose, isMobile }) {
+export default function ProjectsDrawer({ isOpen, onClose, isMobile }) {
   const [formData, setFormData] = useState({
-    company: '',
-    role: '',
+    name: '',
     startDate: '',
     endDate: '',
-    location: '',
     description: '',
   });
 
@@ -17,7 +15,7 @@ export default function WorkExperienceDrawer({ isOpen, onClose, isMobile }) {
   };
 
   const handleSave = () => {
-    console.log('Work Experience saved:', formData);
+    console.log('Project saved:', formData);
     // Placeholder for context or parent function
   };
 
@@ -32,30 +30,18 @@ export default function WorkExperienceDrawer({ isOpen, onClose, isMobile }) {
       >
         <img
           src={leftChevron}
-          alt="close work experience drawer button"
+          alt="close project drawer button"
           onClick={onClose}
           style={{ cursor: 'pointer' }}
         />
-        <h2 className="drawer-heading">Add Work Experience</h2>
+        <h2 className="drawer-heading">Add Project</h2>
 
         <div className="input-group">
-          <label className="input-label">Company Name</label>
+          <label className="input-label">Name</label>
           <input
             type="text"
-            name="company"
-            value={formData.company}
-            onChange={handleChange}
-            className="input-field"
-            placeholder="Type Here..."
-          />
-        </div>
-
-        <div className="input-group">
-          <label className="input-label">Role</label>
-          <input
-            type="text"
-            name="role"
-            value={formData.role}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             className="input-field"
             placeholder="Type Here..."
@@ -87,18 +73,6 @@ export default function WorkExperienceDrawer({ isOpen, onClose, isMobile }) {
         </div>
 
         <div className="input-group">
-          <label className="input-label">Location</label>
-          <input
-            type="text"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-            className="input-field"
-            placeholder="Type Here..."
-          />
-        </div>
-
-        <div className="input-group">
           <label className="input-label">Description</label>
           <textarea
             name="description"
@@ -116,9 +90,8 @@ export default function WorkExperienceDrawer({ isOpen, onClose, isMobile }) {
         </button>
 
         <hr style={{ width: '100%', margin: '16px 0', border: 'none', borderTop: '1px solid #ccc' }} />
-        {/* Placeholder for experience list */}
-        <div style={{ fontWeight: 500, marginBottom: 8 }}>Company Name <span style={{ float: 'right' }}>▼</span></div>
-        <div style={{ fontWeight: 500, marginBottom: 8 }}>Company Name <span style={{ float: 'right' }}>▼</span></div>
+        {/* Placeholder for project list */}
+        <div style={{ fontWeight: 500, marginBottom: 8 }}>Project #1 <span style={{ float: 'right' }}>▼</span></div>
       </div>
     </>
   );
