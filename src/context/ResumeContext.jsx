@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const ResumeContext = createContext();
 
@@ -59,7 +59,14 @@ const initialData = {
 };
 
 export function ResumeProvider({ children }) {
-  const [resume, setResume] = useState(initialData);
+  const [resume, setResume] = useState(() => {
+    const stored = localStorage.getItem('resumeData');
+    return stored ? JSON.parse(stored) : initialData;
+  });
+
+  useEffect(() => {
+    localStorage.setItem('resumeData', JSON.stringify(resume));
+  }, [resume]);
 
   // Updaters for each section
   const updateGeneralInfo = (info) => setResume(r => ({ ...r, generalInfo: info }));
