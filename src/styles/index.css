@@ -301,7 +301,7 @@ body {
   /* margin-left: -200px; */
 }
 
-.drawer img {
+.drawer > img {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -309,7 +309,6 @@ body {
   height: auto;
   aspect-ratio: 1 / 1;   
   cursor: pointer;
-
 }
 
 .drawer-heading {
@@ -405,4 +404,31 @@ body {
   transform: translateX(0);
   opacity: 1;
   pointer-events: auto;
+}
+
+/* Add to index.css for better section separation */
+.work-exp-list-item {
+  border-bottom: 1px solid #eee;
+  padding: 8px 0;
+  margin-bottom: 8px;
+}
+
+.chevron-icon {
+  margin-left: 8px;
+  color: #000;
+  filter: grayscale(0.5);
+}
+
+/* Smooth expand/collapse for drawer item details */
+.drawer-expandable {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s cubic-bezier(.4,0,.2,1), opacity 0.25s cubic-bezier(.4,0,.2,1);
+  will-change: max-height, opacity;
+}
+
+.drawer-expandable.open {
+  max-height: 800px; 
+  opacity: 1;
 }
