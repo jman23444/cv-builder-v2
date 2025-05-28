@@ -432,3 +432,144 @@ body {
   max-height: 800px; 
   opacity: 1;
 }
+
+/*  RESUME PREVIEW STYLING */
+
+/* Resume Preview Styles */
+.resume-preview__container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 0;
+  box-sizing: border-box;
+}
+
+.resume-preview__paper {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.09);
+  padding: 32px 40px;
+  width: 100%;
+  max-width: 800px;
+  min-height: 900px;
+  color: #222;
+  font-family: 'Roboto', Arial, sans-serif;
+}
+
+.resume-preview__header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.resume-preview__name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.resume-preview__contact {
+  font-size: 1rem;
+  color: #444;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+}
+
+.resume-preview__section {
+  margin-bottom: 32px;
+}
+
+.resume-preview__section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
+  color: #222;
+  border-bottom: 1px solid #bbb;
+  padding-bottom: 4px;
+}
+
+.resume-preview__edu-item,
+.resume-preview__exp-item,
+.resume-preview__proj-item {
+  margin-bottom: 16px;
+}
+
+.resume-preview__edu-row,
+.resume-preview__exp-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1rem;
+}
+
+.resume-preview__edu-school,
+.resume-preview__exp-company,
+.resume-preview__proj-name {
+  font-weight: 600;
+}
+
+.resume-preview__edu-dates,
+.resume-preview__exp-dates {
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 400;
+}
+
+.resume-preview__edu-field,
+.resume-preview__exp-role {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.resume-preview__edu-location,
+.resume-preview__exp-location {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.resume-preview__exp-desc,
+.resume-preview__proj-desc {
+  font-size: 0.98rem;
+  color: #222;
+  margin-top: 4px;
+}
+
+.resume-preview__skills {
+  font-size: 1rem;
+  color: #222;
+}
+
+/* Responsive styles */
+@media (max-width: 900px) {
+  .resume-preview__paper {
+    padding: 24px 10px;
+    max-width: 100vw;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .resume-preview__container {
+    padding: 8px 0;
+  }
+  .resume-preview__paper {
+    padding: 12px 2vw;
+    min-height: 0;
+  }
+  .resume-preview__header {
+    margin-bottom: 18px;
+  }
+  .resume-preview__section {
+    margin-bottom: 18px;
+  }
+  .resume-preview__name {
+    font-size: 1.2rem;
+  }
+  .resume-preview__section-title {
+    font-size: 1rem;
+  }
+}
