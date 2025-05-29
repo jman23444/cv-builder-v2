@@ -1,15 +1,37 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useResume } from '../context/ResumeContext';
+import downloadButton from '../assets/icons/download_Icon.svg';
+import html2pdf from 'html2pdf.js';
 
 export default function ResumePreview() {
   const { resume } = useResume();
   const { generalInfo, educations, experiences, projects, skills } = resume;
+  const previewRef = useRef();
+
+  const handleDownload = () => {
+    const element = previewRef.current;
+    const opt = {
+      margin:       0,
+      filename:     `${generalInfo.name || 'resume'}.pdf`,
+      image:        { type: 'jpeg', quality: 0.98 },
+      html2canvas:  { scale: 2, useCORS: true },
+      jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().set(opt).from(element).save();
+  };
 
   return (
     <div className="resume-preview__container">
-      <div className="resume-preview__paper">
+      <div className="resume-preview__paper" ref={previewRef}>
         {/* Header */}
         <div className="resume-preview__header">
+          <img
+            src={downloadButton}
+            alt="download button"
+            style={{ cursor: 'pointer' }}
+            onClick={handleDownload}
+            title="Download as PDF"
+          />
           <h1 className="resume-preview__name">{generalInfo.name}</h1>
           <div className="resume-preview__contact">
             <span>{generalInfo.email}</span>
