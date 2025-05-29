@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import leftChevron from '../../assets/icons/left_chevron.svg';
-import normalChevron from '../../assets/icons/normal_chevron.svg';
-import { useResume } from '../../context/ResumeContext';
+import React, { useState, useEffect } from "react";
+import leftChevron from "../../assets/icons/left_chevron.svg";
+import normalChevron from "../../assets/icons/normal_chevron.svg";
+import { useResume } from "../../context/ResumeContext";
 
 const emptyProject = {
-  name: '',
-  description: '',
+  name: "",
+  description: "",
 };
 
 export default function ProjectsDrawer({ isOpen, onClose, isMobile }) {
@@ -26,10 +26,8 @@ export default function ProjectsDrawer({ isOpen, onClose, isMobile }) {
 
   const handleChange = (e, idx) => {
     const { name, value } = e.target;
-    setProjects(projs =>
-      projs.map((proj, i) =>
-        i === idx ? { ...proj, [name]: value } : proj
-      )
+    setProjects((projs) =>
+      projs.map((proj, i) => (i === idx ? { ...proj, [name]: value } : proj)),
     );
   };
 
@@ -56,45 +54,63 @@ export default function ProjectsDrawer({ isOpen, onClose, isMobile }) {
         <div className="drawer-overlay active" onClick={onClose} />
       )}
       <div
-        className={`drawer drawer--slide${isMobile ? ' drawer--mobile' : ''} ${isOpen ? 'open' : ''}`}
+        className={`drawer drawer--slide${isMobile ? " drawer--mobile" : ""} ${isOpen ? "open" : ""}`}
         style={isMobile ? { zIndex: 1200 } : {}}
       >
-        <img 
-          src={leftChevron} 
-          alt="close projects drawer button" 
+        <img
+          src={leftChevron}
+          alt="close projects drawer button"
           onClick={onClose}
-          style={{ cursor: 'pointer '}}
+          style={{ cursor: "pointer " }}
         />
         <h2 className="drawer-heading">Projects</h2>
-        <button className="save-button" style={{marginBottom: 12}} onClick={handleAdd}>
+        <button
+          className="save-button"
+          style={{ marginBottom: 12 }}
+          onClick={handleAdd}
+        >
           + Add Project
         </button>
         {projects.map((proj, idx) => (
-          <div key={idx} style={{marginBottom: 16, borderBottom: '1px solid #eee', paddingBottom: 8}}>
+          <div
+            key={idx}
+            style={{
+              marginBottom: 16,
+              borderBottom: "1px solid #eee",
+              paddingBottom: 8,
+            }}
+          >
             <div
-              style={{cursor: 'pointer', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}
+              style={{
+                cursor: "pointer",
+                fontWeight: 600,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
               onClick={() => handleExpand(idx)}
             >
-              {proj.name || 'New Project'}
+              {proj.name || "New Project"}
               <img
                 src={normalChevron}
                 alt={expandedIdx === idx ? "Collapse" : "Expand"}
                 className="chevron-icon"
                 style={{
-                  transform: expandedIdx === idx ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.2s'
+                  transform:
+                    expandedIdx === idx ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.2s",
                 }}
               />
             </div>
             {expandedIdx === idx && (
-              <div style={{marginTop: 8}}>
+              <div style={{ marginTop: 8 }}>
                 <div className="input-group">
                   <label className="input-label">Project Name</label>
                   <input
                     type="text"
                     name="name"
                     value={proj.name}
-                    onChange={e => handleChange(e, idx)}
+                    onChange={(e) => handleChange(e, idx)}
                     className="input-field"
                     placeholder="Project Name"
                   />
@@ -102,25 +118,35 @@ export default function ProjectsDrawer({ isOpen, onClose, isMobile }) {
                   <textarea
                     name="description"
                     value={proj.description}
-                    onChange={e => handleChange(e, idx)}
+                    onChange={(e) => handleChange(e, idx)}
                     className="input-field"
                     placeholder="Description"
                   />
                 </div>
-                <div style={{display: 'flex', flexDirection: 'column', gap: 8, marginTop: 16}}>
-                  <button className="save-button" onClick={() => handleSave(idx)}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 8,
+                    marginTop: 16,
+                  }}
+                >
+                  <button
+                    className="save-button"
+                    onClick={() => handleSave(idx)}
+                  >
                     Save
                   </button>
                   <button
                     style={{
-                      background: '#c94c43',
-                      color: '#fff',
+                      background: "#c94c43",
+                      color: "#fff",
                       borderRadius: 4,
-                      padding: '10px',
-                      border: 'none',
-                      cursor: 'pointer',
+                      padding: "10px",
+                      border: "none",
+                      cursor: "pointer",
                       fontWeight: 600,
-                      fontSize: 16
+                      fontSize: 16,
                     }}
                     onClick={() => handleDelete(idx)}
                   >

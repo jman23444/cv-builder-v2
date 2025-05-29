@@ -1,7 +1,7 @@
-import React, { useRef } from 'react';
-import { useResume } from '../context/ResumeContext';
-import downloadButton from '../assets/icons/download_Icon.svg';
-import html2pdf from 'html2pdf.js';
+import React, { useRef } from "react";
+import { useResume } from "../context/ResumeContext";
+import downloadButton from "../assets/icons/download_Icon.svg";
+import html2pdf from "html2pdf.js";
 
 export default function ResumePreview() {
   const { resume } = useResume();
@@ -11,11 +11,11 @@ export default function ResumePreview() {
   const handleDownload = () => {
     const element = previewRef.current;
     const opt = {
-      margin:       0,
-      filename:     `${generalInfo.name || 'resume'}.pdf`,
-      image:        { type: 'jpeg', quality: 0.98 },
-      html2canvas:  { scale: 2, useCORS: true },
-      jsPDF:        { unit: 'pt', format: 'a4', orientation: 'portrait' }
+      margin: 0,
+      filename: `${generalInfo.name || "resume"}.pdf`,
+      image: { type: "jpeg", quality: 0.98 },
+      html2canvas: { scale: 2, useCORS: true },
+      jsPDF: { unit: "pt", format: "a4", orientation: "portrait" },
     };
     html2pdf().set(opt).from(element).save();
   };
@@ -28,7 +28,7 @@ export default function ResumePreview() {
           <img
             src={downloadButton}
             alt="download button"
-            style={{ cursor: 'pointer' }}
+            style={{ cursor: "pointer" }}
             onClick={handleDownload}
             title="Download as PDF"
           />
@@ -91,7 +91,9 @@ export default function ResumePreview() {
               <div className="resume-preview__proj-name">
                 <strong>{proj.name}</strong>
               </div>
-              <div className="resume-preview__proj-desc">{proj.description}</div>
+              <div className="resume-preview__proj-desc">
+                {proj.description}
+              </div>
             </div>
           ))}
         </section>
@@ -99,9 +101,7 @@ export default function ResumePreview() {
         {/* Technical Skills */}
         <section className="resume-preview__section">
           <h2 className="resume-preview__section-title">TECHNICAL SKILLS</h2>
-          <div className="resume-preview__skills">
-            {skills.join(', ')}
-          </div>
+          <div className="resume-preview__skills">{skills.join(", ")}</div>
         </section>
       </div>
     </div>

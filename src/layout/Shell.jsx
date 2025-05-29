@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
-import GeneralInfoDrawer from '../components/Drawers/GeneralInfoDrawer';
-import EducationDrawer from '../components/Drawers/EducationDrawer';
-import ProjectsDrawer from '../components/Drawers/ProjectsDrawer';
-import WorkExperienceDrawer from '../components/Drawers/WorkExperienceDrawer';
-import TechnicalSkillsDrawer from '../components/Drawers/TechnicalSkillsDrawer';
+import React, { useState } from "react";
+import Header from "../components/Header";
+import Sidebar from "../components/Sidebar";
+import GeneralInfoDrawer from "../components/Drawers/GeneralInfoDrawer";
+import EducationDrawer from "../components/Drawers/EducationDrawer";
+import ProjectsDrawer from "../components/Drawers/ProjectsDrawer";
+import WorkExperienceDrawer from "../components/Drawers/WorkExperienceDrawer";
+import TechnicalSkillsDrawer from "../components/Drawers/TechnicalSkillsDrawer";
 
 export default function Shell({ children }) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -30,40 +30,38 @@ export default function Shell({ children }) {
         <Sidebar
           isOpen={isSidebarOpen}
           onClose={closeSidebar}
-          onGeneralInfoClick={() => handleOpenDrawer('general')}
-          onEducationClick={() => handleOpenDrawer('education')}
-          onProjectsClick={() => handleOpenDrawer('projects')}
-          onWorkExperienceClick={() => handleOpenDrawer('workExperience')}
-          onTechnicalSkillsClick={() => handleOpenDrawer('skills')} 
+          onGeneralInfoClick={() => handleOpenDrawer("general")}
+          onEducationClick={() => handleOpenDrawer("education")}
+          onProjectsClick={() => handleOpenDrawer("projects")}
+          onWorkExperienceClick={() => handleOpenDrawer("workExperience")}
+          onTechnicalSkillsClick={() => handleOpenDrawer("skills")}
         />
         <GeneralInfoDrawer
-          isOpen={openDrawer === 'general'}
+          isOpen={openDrawer === "general"}
           onClose={closeDrawer}
           isMobile={isMobile}
         />
         <EducationDrawer
-          isOpen={openDrawer === 'education'}
+          isOpen={openDrawer === "education"}
           onClose={closeDrawer}
           isMobile={isMobile}
         />
         <ProjectsDrawer
-          isOpen={openDrawer === 'projects'}
+          isOpen={openDrawer === "projects"}
           onClose={closeDrawer}
           isMobile={isMobile}
         />
         <WorkExperienceDrawer
-          isOpen={openDrawer === 'workExperience'}
+          isOpen={openDrawer === "workExperience"}
           onClose={closeDrawer}
           isMobile={isMobile}
         />
         <TechnicalSkillsDrawer
-          isOpen={openDrawer === 'skills'}
+          isOpen={openDrawer === "skills"}
           onClose={closeDrawer}
           isMobile={isMobile}
         />
-        <main className="shell-main">
-          {children}
-        </main>
+        <main className="shell-main">{children}</main>
       </div>
     </div>
   );

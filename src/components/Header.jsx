@@ -1,9 +1,9 @@
-import React from 'react';
-import logo from '../assets/brand/LOGO.svg';
-import brain from '../assets/icons/brain.svg';
-import Button, { ProfileIcon } from './Buttons';
-import shieldIcon from '../assets/icons/shieldIcon.svg';
-import mobileMenuIcon from '../assets/icons/mobile_Menu_Icon.svg';
+import React from "react";
+import logo from "../assets/brand/LOGO.svg";
+import brain from "../assets/icons/brain.svg";
+import Button, { ProfileIcon } from "./Buttons";
+import shieldIcon from "../assets/icons/shieldIcon.svg";
+import mobileMenuIcon from "../assets/icons/mobile_Menu_Icon.svg";
 
 export default function Header({ openSidebar }) {
   return (
@@ -22,7 +22,7 @@ export default function Header({ openSidebar }) {
           <Button
             id="upgrade-button"
             label="Upgrade to Premium"
-            onClick={() => alert('Upgrade clicked!')}
+            onClick={() => alert("Upgrade clicked!")}
             icon={shieldIcon}
             color="#FFF"
             bgColor="#008847"

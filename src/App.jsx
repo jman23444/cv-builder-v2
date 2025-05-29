@@ -1,9 +1,6 @@
-import React from 'react';
-import Builder from './pages/Builder';
-
+import React from "react";
+import Builder from "./pages/Builder";
 
 export default function App() {
-  return (
-    <Builder />
-  );
+  return <Builder />;
 }

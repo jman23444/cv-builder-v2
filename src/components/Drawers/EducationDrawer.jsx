@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import leftChevron from '../../assets/icons/left_chevron.svg';
-import normalChevron from '../../assets/icons/normal_chevron.svg';
-import { useResume } from '../../context/ResumeContext';
+import React, { useState, useEffect } from "react";
+import leftChevron from "../../assets/icons/left_chevron.svg";
+import normalChevron from "../../assets/icons/normal_chevron.svg";
+import { useResume } from "../../context/ResumeContext";
 
 const emptyEducation = {
-  school: '',
-  field: '',
-  location: '',
-  startDate: '',
-  endDate: '',
+  school: "",
+  field: "",
+  location: "",
+  startDate: "",
+  endDate: "",
 };
 
 export default function EducationDrawer({ isOpen, onClose, isMobile }) {
@@ -29,10 +29,8 @@ export default function EducationDrawer({ isOpen, onClose, isMobile }) {
 
   const handleChange = (e, idx) => {
     const { name, value } = e.target;
-    setEducations(eds =>
-      eds.map((edu, i) =>
-        i === idx ? { ...edu, [name]: value } : edu
-      )
+    setEducations((eds) =>
+      eds.map((edu, i) => (i === idx ? { ...edu, [name]: value } : edu)),
     );
   };
 
@@ -59,45 +57,63 @@ export default function EducationDrawer({ isOpen, onClose, isMobile }) {
         <div className="drawer-overlay active" onClick={onClose} />
       )}
       <div
-        className={`drawer drawer--slide${isMobile ? ' drawer--mobile' : ''} ${isOpen ? 'open' : ''}`}
+        className={`drawer drawer--slide${isMobile ? " drawer--mobile" : ""} ${isOpen ? "open" : ""}`}
         style={isMobile ? { zIndex: 1200 } : {}}
       >
-        <img 
-          src={leftChevron} 
-          alt="close education drawer button" 
+        <img
+          src={leftChevron}
+          alt="close education drawer button"
           onClick={onClose}
-          style={{ cursor: 'pointer '}}
+          style={{ cursor: "pointer " }}
         />
         <h2 className="drawer-heading">Education</h2>
-        <button className="save-button" style={{marginBottom: 12}} onClick={handleAdd}>
+        <button
+          className="save-button"
+          style={{ marginBottom: 12 }}
+          onClick={handleAdd}
+        >
           + Add Education
         </button>
         {educations.map((edu, idx) => (
-          <div key={idx} style={{marginBottom: 16, borderBottom: '1px solid #eee', paddingBottom: 8}}>
+          <div
+            key={idx}
+            style={{
+              marginBottom: 16,
+              borderBottom: "1px solid #eee",
+              paddingBottom: 8,
+            }}
+          >
             <div
-              style={{cursor: 'pointer', fontWeight: 600, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}
+              style={{
+                cursor: "pointer",
+                fontWeight: 600,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+              }}
               onClick={() => handleExpand(idx)}
             >
-              {edu.school || 'New Education'}
+              {edu.school || "New Education"}
               <img
                 src={normalChevron}
                 alt={expandedIdx === idx ? "Collapse" : "Expand"}
                 className="chevron-icon"
                 style={{
-                  transform: expandedIdx === idx ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.2s'
+                  transform:
+                    expandedIdx === idx ? "rotate(180deg)" : "rotate(0deg)",
+                  transition: "transform 0.2s",
                 }}
               />
             </div>
             {expandedIdx === idx && (
-              <div style={{marginTop: 8}}>
+              <div style={{ marginTop: 8 }}>
                 <div className="input-group">
                   <label className="input-label">School</label>
                   <input
                     type="text"
                     name="school"
                     value={edu.school}
-                    onChange={e => handleChange(e, idx)}
+                    onChange={(e) => handleChange(e, idx)}
                     className="input-field"
                     placeholder="School"
                   />
@@ -106,7 +122,7 @@ export default function EducationDrawer({ isOpen, onClose, isMobile }) {
                     type="text"
                     name="field"
                     value={edu.field}
-                    onChange={e => handleChange(e, idx)}
+                    onChange={(e) => handleChange(e, idx)}
                     className="input-field"
                     placeholder="Field of Study"
                   />
@@ -115,7 +131,7 @@ export default function EducationDrawer({ isOpen, onClose, isMobile }) {
                     type="text"
                     name="location"
                     value={edu.location}
-                    onChange={e => handleChange(e, idx)}
+                    onChange={(e) => handleChange(e, idx)}
                     className="input-field"
                     placeholder="Location"
                   />
@@ -124,7 +140,7 @@ export default function EducationDrawer({ isOpen, onClose, isMobile }) {
                     type="text"
                     name="startDate"
                     value={edu.startDate}
-                    onChange={e => handleChange(e, idx)}
+                    onChange={(e) => handleChange(e, idx)}
                     className="input-field"
                     placeholder="Start Date"
                   />
@@ -133,25 +149,35 @@ export default function EducationDrawer({ isOpen, onClose, isMobile }) {
                     type="text"
                     name="endDate"
                     value={edu.endDate}
-                    onChange={e => handleChange(e, idx)}
+                    onChange={(e) => handleChange(e, idx)}
                     className="input-field"
                     placeholder="End Date"
                   />
                 </div>
-                <div style={{display: 'flex', flexDirection: 'column', gap: 8, marginTop: 16}}>
-                  <button className="save-button" onClick={() => handleSave(idx)}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: 8,
+                    marginTop: 16,
+                  }}
+                >
+                  <button
+                    className="save-button"
+                    onClick={() => handleSave(idx)}
+                  >
                     Save
                   </button>
                   <button
                     style={{
-                      background: '#c94c43',
-                      color: '#fff',
+                      background: "#c94c43",
+                      color: "#fff",
                       borderRadius: 4,
-                      padding: '10px',
-                      border: 'none',
-                      cursor: 'pointer',
+                      padding: "10px",
+                      border: "none",
+                      cursor: "pointer",
                       fontWeight: 600,
-                      fontSize: 16
+                      fontSize: 16,
                     }}
                     onClick={() => handleDelete(idx)}
                   >

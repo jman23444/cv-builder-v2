@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import leftChevron from '../../assets/icons/left_chevron.svg';
-import { useResume } from '../../context/ResumeContext';
+import React, { useState, useEffect } from "react";
+import leftChevron from "../../assets/icons/left_chevron.svg";
+import { useResume } from "../../context/ResumeContext";
 
 export default function GeneralInfoDrawer({ isOpen, onClose, isMobile }) {
   const { resume, updateGeneralInfo } = useResume();
@@ -26,14 +26,14 @@ export default function GeneralInfoDrawer({ isOpen, onClose, isMobile }) {
         <div className="drawer-overlay active" onClick={onClose} />
       )}
       <div
-        className={`drawer drawer--slide${isMobile ? ' drawer--mobile' : ''} ${isOpen ? 'open' : ''}`}
+        className={`drawer drawer--slide${isMobile ? " drawer--mobile" : ""} ${isOpen ? "open" : ""}`}
         style={isMobile ? { zIndex: 1200 } : {}}
       >
-        <img 
-          src={leftChevron} 
-          alt="close general info drawer button" 
+        <img
+          src={leftChevron}
+          alt="close general info drawer button"
           onClick={onClose}
-          style={{ cursor: 'pointer '}}
+          style={{ cursor: "pointer " }}
         />
         <h2 className="drawer-heading">General Info</h2>
 
@@ -85,10 +85,7 @@ export default function GeneralInfoDrawer({ isOpen, onClose, isMobile }) {
           />
         </div>
 
-        <button
-          onClick={handleSave}
-          className="save-button"
-        >
+        <button onClick={handleSave} className="save-button">
           Save
         </button>
       </div>
